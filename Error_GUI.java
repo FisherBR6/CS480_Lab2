@@ -6,7 +6,11 @@ public class Error_GUI {
     private JLabel errorVal;
     JFrame frame = new JFrame();
 
+    /**
+     * builds an error GUI panel
+     */
     public void buildGuiPanel() {
+        //build and display an error GUI
         panel1 = new JPanel();
         panel1.setBackground(Color.RED);
         errorVal = new JLabel("ERROR. Invalid input. Please try again.");

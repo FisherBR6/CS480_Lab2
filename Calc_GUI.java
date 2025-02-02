@@ -1,16 +1,13 @@
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-import javax.swing.plaf.FontUIResource;
-import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Locale;
 
-import static java.lang.Integer.parseInt;
 
 public class Calc_GUI {
+    //instantiate all necessry elements of the calulator gui
     private JPanel panel1;
     JTextArea textArea1;
     private JButton button1;
@@ -50,22 +47,17 @@ public class Calc_GUI {
     StringBuilder equation = new StringBuilder();
     ArrayList<String> eqList = new ArrayList<>();
 
+    /**
+     * constructor for Calc_GUI class
+     * contains action listeners and functionalities for all buttons on calculator
+     */
     public Calc_GUI() {
-        panel1 = new JPanel();
         Calc_Functions calc_Functions = new Calc_Functions();
-        /*
-        String[] opArray = new String[3];
-        StringBuilder term1 = new StringBuilder();
-        StringBuilder operator = new StringBuilder();
-        StringBuilder term2 = new StringBuilder();
-        char termFlag = 1;
-
-         */
-
-
+        //buld the GUI panel
+        panel1 = new JPanel();
         buildGuiPanel();
 
-
+        //implement action listeners for all GUI buttons
         a1Button.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
@@ -346,7 +338,11 @@ public class Calc_GUI {
         });
     }
 
+    /**
+     * builds the calculator GUI panel
+     */
     public void buildGuiPanel() {
+        //initialize and add all necessary GUI elements to the panel
         panel1 = new JPanel();
         panel2 = new JPanel();
         panel2.setPreferredSize(new Dimension(200, 200));
@@ -364,146 +360,106 @@ public class Calc_GUI {
        panel2.add(panel4);
         a1Button = new JButton();
         a1Button.setText("1");
-        //panel4.add(a1Button, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel4.add(a1Button);
         a2Button = new JButton();
         a2Button.setText("2");
-        //panel4.add(a2Button, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel4.add(a2Button);
         a3Button = new JButton();
         a3Button.setText("3");
-        //panel4.add(a3Button, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel4.add(a3Button);
         a5Button = new JButton();
         a5Button.setText("5");
-        //panel4.add(a5Button, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel4.add(a5Button);
         a4Button = new JButton();
         a4Button.setText("4");
-        //panel4.add(a4Button, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel4.add(a4Button);
         a6Button = new JButton();
         a6Button.setText("6");
-        //panel4.add(a6Button, new com.intellij.uiDesigner.core.GridConstraints(1, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel4.add(a6Button);
         a7Button1 = new JButton();
         a7Button1.setText("7");
-        //panel4.add(a7Button1, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel4.add(a7Button1);
         a8Button = new JButton();
         a8Button.setText("8");
-        //panel4.add(a8Button, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel4.add(a8Button);
         a9Button = new JButton();
         a9Button.setText("9");
-        //panel4.add(a9Button, new com.intellij.uiDesigner.core.GridConstraints(2, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel4.add(a9Button);
         a0Button = new JButton();
         a0Button.setText("0");
-        //panel4.add(a0Button, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel4.add(a0Button);
         decButton = new JButton();
         decButton.setText(".");
-        //panel4.add(decButton, new com.intellij.uiDesigner.core.GridConstraints(3, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel4.add(decButton);
-
-       // calcPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createRaisedBevelBorder(), null, TitledBorder.CENTER, TitledBorder.TOP, null));
         panel5 = new JPanel();
         panel5.setLayout(new GridLayout(8, 2));
-        //panel1.add(panel5, new uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         panel1.add(panel5);
-
         cButton = new JButton();
         cButton.setText("C");
-        //panel5.add(cButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(cButton);
         sinButton = new JButton();
         sinButton.setText("sin");
-        //panel5.add(sinButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(sinButton);
         cosButton = new JButton();
         cosButton.setText("cos");
-        //panel5.add(cosButton, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(cosButton);
         tanButton = new JButton();
         tanButton.setText("tan");
-        //panel5.add(tanButton, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(tanButton);
         cotButton = new JButton();
         cotButton.setText("cot");
-        //panel5.add(cotButton, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(cotButton);
         lnButton = new JButton();
         lnButton.setText("ln");
-        //panel5.add(lnButton, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(lnButton);
         logButton = new JButton();
         logButton.setText("log(Base 10)");
-        //panel5.add(logButton, new com.intellij.uiDesigner.core.GridConstraints(5, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(logButton);
         button1 = new JButton();
 
         button2 = new JButton();
         button2.setText("*");
-        //panel5.add(button2, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(button2);
         button3 = new JButton();
         button3.setText("/");
-        //panel5.add(button3, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(button3);
         button5 = new JButton();
         button5.setText("+");
-        //panel5.add(button5, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(button5);
         button1.setText("-");
-        //panel5.add(button1, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(button1);
         expButton = new JButton();
         expButton.setText("^");
-        //panel5.add(expButton, new com.intellij.uiDesigner.core.GridConstraints(5, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(expButton);
-
         negativeButton = new JButton();
         negativeButton.setText("- (negative)");
-        //panel5.add(negativeButton, new com.intellij.uiDesigner.core.GridConstraints(6, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(negativeButton);
         button4 = new JButton();
         button4.setText("=");
-        //panel5.add(button4, new com.intellij.uiDesigner.core.GridConstraints(7, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(button4);
         openParenButton = new JButton();
         openParenButton.setText("( ");
-        //panel5.add(openParenButton, new com.intellij.uiDesigner.core.GridConstraints(6, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(openParenButton);
         closeParenButton = new JButton();
         closeParenButton.setText(" )");
-        //panel5.add(closeParenButton, new com.intellij.uiDesigner.core.GridConstraints(7, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panel5.add(closeParenButton);
-        /*
-        panel2 = new JPanel();
-
-        panel2.add(panel3);
-        panel2.add(panel4);
-
-         */
-        //panel1.add(calcPanel);
         panel1.add(panel2);
         panel1.add(panel5);
-
         guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiFrame.setSize(525, 350);
         guiFrame.setContentPane(panel1);
         guiFrame.setVisible(true);
     }
 
+    /**
+     * parses String equation
+     * @return ArrayList version of String equation
+     */
     public ArrayList parseString() {
-        char flag = 1;
-        int startDig = 0;
-        System.out.println("equation: " + equation.toString());
-        System.out.println("equation length: " + equation.length());
+        //char flag = 1;
+        //int startDig = 0;
 
-        //New Code:
-
+        //using a for loop, parse through the equation string and build an arraylist using its values and operators
         for (int i = 0; i < equation.length(); i++) {
             if (equation.charAt(i) == '(') {
                 eqList.add("(");
@@ -511,13 +467,10 @@ public class Calc_GUI {
             if (equation.charAt(i) == ')') {
                 eqList.add(")");
             }
-            //System.out.println("i :" + i);
             if (equation.charAt(i) == ' ' && equation.charAt(i + 1) == '-') {
                 for (int j = i + 2; j < equation.length(); j++) {
-                    //System.out.println("j :" + j);
                     if (!Character.isDigit(equation.charAt(j)) && equation.charAt(j) != '.') {
                         eqList.add(equation.substring(i + 1, j));
-                        //System.out.println("Current eq val: " + equation.substring(i, j));
                         i = j - 1;
                         break;
                     }
@@ -528,10 +481,8 @@ public class Calc_GUI {
                 }
             } else if (Character.isDigit(equation.charAt(i)) || equation.charAt(i) == '.') {
                 for (int j = i; j < equation.length(); j++) {
-                    //System.out.println("j :" + j);
                     if (!Character.isDigit(equation.charAt(j)) && equation.charAt(j) != '.') {
                         eqList.add(equation.substring(i, j));
-                        //System.out.println("Current eq val: " + equation.substring(i, j));
                         i = j - 1;
                         break;
                     }
@@ -541,12 +492,9 @@ public class Calc_GUI {
                     }
                 }
             } else if (Character.isLetter(equation.charAt(i))) {
-                //System.out.println("At least got here");
                 for (int j = i; j < equation.length(); j++) {
                     if (!Character.isLetter(equation.charAt(j))) {
-                        //System.out.println("At least got here");
                         eqList.add(equation.substring(i, j));
-                        //System.out.println("Current eq val: " + equation.substring(i, j));
                         i = j - 1;
                         break;
                     }
@@ -557,18 +505,21 @@ public class Calc_GUI {
                 }
 
             } else if (isOp(equation.charAt(i))) {
-                //System.out.println("Current eq val: " + equation.substring(i, i+1));
                 eqList.add((equation.substring(i, i + 1)));
             }
-            //System.out.println("Equation val at " + i + ": " + equation.charAt(i));
         }
 
-        //End of new code
         System.out.println("parsed eqList: " + eqList);
         return eqList;
     }
 
+    /**
+     * determines if the passed val is an integer
+     * @param eqListVal
+     * @return boolean true or false
+     */
     public boolean isInteger(String eqListVal) {
+        //determine if a value is an integer or not
         try {
             Integer.parseInt(eqListVal);
             return true;
@@ -577,7 +528,13 @@ public class Calc_GUI {
         }
     }
 
+    /**
+     * determines if the passed val is a float
+     * @param eqListVal
+     * @return boolean true or false
+     */
     public boolean isFloat(String eqListVal) {
+        //determine if a value is a float or not
         try {
             Float.parseFloat(eqListVal);
             //System.out.println("Float: " + eqListVal);
@@ -588,7 +545,11 @@ public class Calc_GUI {
         }
     }
 
+    /**
+     * displays GUI error message
+     */
     public void throwError() {
+        //build and display an error GUI panel
         Error_GUI error_GUI = new Error_GUI();
         error_GUI.buildGuiPanel();
         textArea1.setText("");
@@ -596,7 +557,13 @@ public class Calc_GUI {
         eqList.clear();
     }
 
+    /**
+     * determines if passed ArrayList equation is valid
+     * @param eqList
+     * @return boolean true or false
+     */
     public boolean validateInput(ArrayList<String> eqList) {
+        //using a flag variable, iterate through the equation and determine if it is valid
         boolean valSoFar = false;
         if (startEndWithOp()) {
             textArea1.setText("");
@@ -605,7 +572,6 @@ public class Calc_GUI {
             throwError();
             return false;
         } else {
-            //System.out.println(eqList.toString());
             valSoFar = true;
         }
 
@@ -619,16 +585,16 @@ public class Calc_GUI {
                     return false;
                 }
             }
-
-            //check for divide by zero
-            //check for log of a negative
-            //check for two operators back to back
-            //check for all other potential problems
         }
         return true;
     }
 
+    /**
+     * determines if the equation starts or ends with a binary operator
+     * @return boolean true or false
+     */
     public boolean startEndWithOp() {
+        //determine if the equation begins or ends with an operator
         if ((eqList.get(0) == "*" || eqList.get(0) == "/" || eqList.get(0) == "+" || eqList.get(0) == "-" ||
                 eqList.get(0) == "^") || (eqList.get(eqList.size() - 1) == "*" || eqList.get(eqList.size() - 1) == "/" ||
                 eqList.get(eqList.size() - 1) == "+" || eqList.get(eqList.size() - 1) == "-" || eqList.get(eqList.size() - 1) == "^")) {
@@ -637,21 +603,39 @@ public class Calc_GUI {
             return false;
     }
 
+    /**
+     * determines if the passed value is a binary operator
+     * @param potOp
+     * @return boolean true or false
+     */
     public boolean isOp(char potOp) {
+        //determine if the passed character is a binary operator or not
         if (potOp == '*' || potOp == '/' || potOp == '+' || potOp == '-' || potOp == '^') {
             return true;
         } else
             return false;
     }
 
+    /**
+     * determines if the passed value is a trig function or a log
+     * @param eqListVal
+     * @return boolean true or false
+     */
     public boolean isTrigFunction(String eqListVal) {
+        //determing if the passed string is a unary operator
         if (eqListVal.equalsIgnoreCase("sin") || eqListVal.equalsIgnoreCase("cos") || eqListVal.equalsIgnoreCase("tan") || eqListVal.equalsIgnoreCase("cot") || eqListVal.equalsIgnoreCase("ln") || eqListVal.equalsIgnoreCase("log")) {
             return true;
         } else
             return false;
     }
 
+    /**
+     * determines if the passed value is a parentheses
+     * @param eqListVal
+     * @return boolean true or false
+     */
     public boolean isParen(String eqListVal) {
+        //determine if the passed string is a parenthesis
         if (eqListVal.equalsIgnoreCase("(") || eqListVal.equalsIgnoreCase(")")) {
             return true;
         } else
