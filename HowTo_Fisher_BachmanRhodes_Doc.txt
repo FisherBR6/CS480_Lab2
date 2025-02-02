@@ -1,1 +1,23 @@
-How to compile and execute this code:1. Download the proper zip file from Canvas and extract the files to the desired location.2. The first thing to do to compile and run this code is to ensure you have the proper Java SDK installed:a. For this project I used the Oracle OpenJDK 23.0.2 Ð aarch64.i. This can be downloaded from this link: https://www.oracle.com/java/technologies/downloads/ - jdk23-macb. Additionally, the location of this SDK bust be set in your ÒPATHÓ.i. The steps found in this link can assist this process: https://www.cs.fsu.edu/~myers/cop3252/howto/cmdline.html3. Next, we must understand the commands to use:a. javac  [insert filename here]  - this is the compiler commandb. java  [insert filename here]      - this is the loader/interpretorc. If done on windows, the commands would change to this:i. Javac.exe  [insert filename here]  - this is the compiler commandii. Java.exe  [insert filename here]      - this is the loader/interpretor4. Finally, we must compile and execute this code using the following commands:a. First, compile it:i. javac  Calc_Driver.javab. Then, execute iti. java  Calc_Driver.java5. For additional Questions about this process, go to this link: ttps://www.cs.fsu.edu/~myers/cop3252/howto/cmdline.html
+How to compile and execute this code:
+1. Download the proper zip file from Canvas and extract the files to the desired location.
+2. The first thing to do to compile and run this code is to ensure you have the proper Java SDK installed:
+	a. For this project I used the Oracle OpenJDK 23.0.2 Ð aarch64.
+		i. This can be downloaded from this link: 				https://www.oracle.com/java/technologies/downloads/ - jdk23-mac
+	b. Additionally, the location of this SDK bust be set in your 	ÒPATHÓ.
+		i. The steps found in this link can assist this process: 	https://www.cs.fsu.edu/~myers/cop3252/howto/cmdline.html
+3. Next, we must understand the commands to use:
+	a. javac  [insert filename here]  - this is the compiler command
+	b. java  [insert filename here]      - this is the 	loader/interpretor
+	c. If done on windows, the commands would change to this:
+		i. Javac.exe  [insert filename here]  - this is the compiler 		command
+		ii. Java.exe  [insert filename here]      - this is the 			loader/interpretor
+4. Finally, we must compile and execute this code using the following commands:
+	a. First, compile it:
+		i. javac  Calc_Driver.java
+	b. Then, execute it
+		i. java  Calc_Driver.java
+5. For additional Questions about this process, go to this link: ttps://www.cs.fsu.edu/~myers/cop3252/howto/cmdline.html
+
+Notes on interacting with the GUI:
+1. ONLY utilize the buttons to input numbers and operators into the calculator. Typing anything in the calculator window will result in an error. 
+2. Use the ÒCÓ button to clear the calculator screen
